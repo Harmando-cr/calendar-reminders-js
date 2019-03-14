@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WeekContainerComponent implements OnInit {
 
-  @Input() calendar: any;
+  @Input() header: string[];
   @Input() week: any;
 
   constructor() { }

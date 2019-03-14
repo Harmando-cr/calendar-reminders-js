@@ -3,12 +3,38 @@
   display: inline-block;
   text-align: left;
   height: 100%;
-  width: 14.1%;
+  width: 13.97%;
   border: 1px solid #ccc;
   background-color: #ffffff;
+  color: gray;
+  font-weight: bold;
 }
 
 .day-week{
-    background-color: #4286f4 !important;
-  }
+  background-color: #3f71c2;
+  border-color: #3f71c2;
+  position: relative;
+  color: white;
+  font-weight: bold;
+}
+
+.day-weekend{
+  background-color: gainsboro;
+}
+
+.day-box.day-weekend.day-month{
+  color: dodgerblue
+}
+
+.day-month{
+  color: black;
+}
+
+.centered-day{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 

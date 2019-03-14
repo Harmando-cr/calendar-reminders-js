@@ -1,1 +1,8 @@
-<div class="day-box">{{day}}</div>
+<div class="day-box" [ngClass]="{'day-week': header,
+                                  'day-weekend': dy.dayName === 'Sunday' || dy.dayName === 'Saturday',
+                                   'day-month': dy.dayMonth === month }">
+  <div [ngClass]="{'centered-day':header}">
+    <p *ngIf="header" class="day-week">{{day}}</p>
+    <p *ngIf="!header">{{dy.dayNumber}}</p>
+  </div>
+</div>

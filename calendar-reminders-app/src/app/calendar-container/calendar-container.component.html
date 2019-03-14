@@ -1,3 +1,4 @@
 <div class="calendar-container">
-  <app-week-container *ngFor="let week of calendar" [calendar]='calendar' [week]='week' ></app-week-container>
+  <app-week-container [header]="header"></app-week-container>
+  <app-week-container *ngFor="let week of calendar" [week]='week' ></app-week-container>
 </div>
