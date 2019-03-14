@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalendarContainerComponent } from './calendar-container/calendar-container.component';
 import { DayContainerComponent } from './day-container/day-container.component';
+import { WeekContainerComponent } from './week-container/week-container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarContainerComponent,
-    DayContainerComponent
+    DayContainerComponent,
+    WeekContainerComponent
   ],
   imports: [
     BrowserModule,
