@@ -38,7 +38,7 @@ export class DayContainerComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalRemindersComponent, {
-      width: '250px',
+      width: '450px',
       data: { day: this.dy }
     });
 

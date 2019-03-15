@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalRemindersComponent } from './modal-reminders/modal-reminders.component';
 import { MaterialModule } from './material-module';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ColorPickerModule
+    ColorPickerModule,
+    AmazingTimePickerModule
   ],
   entryComponents: [DayContainerComponent, ModalRemindersComponent],
   providers: [],

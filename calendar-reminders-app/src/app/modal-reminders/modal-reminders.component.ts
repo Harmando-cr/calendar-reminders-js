@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogData } from '../day-container/day-container.component';
+import { AmazingTimePickerService } from 'amazing-time-picker';
+
 import * as moment from 'moment';
 
 @Component({
@@ -15,15 +17,18 @@ export class ModalRemindersComponent implements OnInit {
   reminder: any;
 
   constructor(
+    private atp: AmazingTimePickerService,
     public dialogRef: MatDialogRef<ModalRemindersComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
     ) {
     this.date = moment(data.day.dayDate).format('dddd, MMMM D');
     this.type = 'show';
     this.reminders = [];
+
     this.reminder = {
       text: '',
       color: '',
+      time: '',
     };
   }
 
@@ -35,6 +40,7 @@ export class ModalRemindersComponent implements OnInit {
     this.reminder = {
       text: '',
       color: '',
+      time: '',
     };
   }
 
@@ -50,9 +56,15 @@ export class ModalRemindersComponent implements OnInit {
   }
 
   applyStyles() {
-    const styles = { 'color': this.reminder.color };
+    const styles = {color: this.reminder.color, 'margin-top': '-2px'};
     return styles;
   }
 
+  open() {
+    const amazingTimePicker = this.atp.open();
+    amazingTimePicker.afterClose().subscribe(time => {
+      this.reminder.time = time;
+    });
+  }
 
 }

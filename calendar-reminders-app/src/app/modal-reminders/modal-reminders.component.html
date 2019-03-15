@@ -15,9 +15,13 @@
       <mat-list role="list" *ngIf="reminders" >
         <cdk-virtual-scroll-viewport itemSize="50" class="viewport " id="style-1">
           <div *cdkVirtualFor="let reminder of reminders" class="viewport-item">
-            <div class='item'>{{reminder.text}}</div>
-            <i class="material-icons" [ngStyle]="applyStyles()">
+            <div class='item'>{{reminder.time}}</div>
+            <i class="material-icons item edit" [style.color]="reminder.color">
               fiber_manual_record
+            </i>
+            <div class='item'>{{reminder.text}}</div>
+            <i class="material-icons item edit">
+              edit
             </i>
           </div>
         </cdk-virtual-scroll-viewport>
@@ -30,14 +34,25 @@
   </div>
 </div>
 <div *ngIf="type === 'add'">
-  <br>
-  <mat-form-field>
-    <input matInput [(ngModel)]="reminder.text" placeholder="Input a reminder!">
-  </mat-form-field>
-  <br>
-  <p>Select a reminder color</p>
-  <input [(colorPicker)]="reminder.color" [style.background]="reminder.color" />
-  <br>
-  <br>
-  <button mat-raised-button (click)="addReminder()">Add</button>
+  <div class='content-add'>
+    <br>
+    <mat-form-field>
+      <input matInput [(ngModel)]="reminder.text" placeholder="Input a reminder!" maxlength="30">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Select a color!"
+      [(colorPicker)]="reminder.color" [style.background]="reminder.color" [style.color]="reminder.color" >
+    </mat-form-field>
+    <!-- <input [(colorPicker)]="reminder.color" [style.background]="reminder.color" /> -->
+    <br>
+    <mat-form-field>
+      <input matInput [(ngModel)]="reminder.time" placeholder="Select an hour!" (click)="open()" value="{{reminder.time}}">
+    </mat-form-field>
+    <!-- <button (click)="open()">Time</button> -->
+    <!-- <input type="time" value="{{reminder.time}}"> -->
+    <br>
+    <button mat-raised-button (click)="addReminder()">Add</button>
+
+  </div>
 </div>
