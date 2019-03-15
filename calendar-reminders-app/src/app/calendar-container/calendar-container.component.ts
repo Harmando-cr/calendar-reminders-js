@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Day } from '../day';
 import * as moment from 'moment';
 
 @Component({

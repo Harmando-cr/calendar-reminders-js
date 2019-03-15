@@ -6,18 +6,25 @@ import { AppComponent } from './app.component';
 import { CalendarContainerComponent } from './calendar-container/calendar-container.component';
 import { DayContainerComponent } from './day-container/day-container.component';
 import { WeekContainerComponent } from './week-container/week-container.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalRemindersComponent } from './modal-reminders/modal-reminders.component';
+import { MaterialModule } from './material-module';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarContainerComponent,
     DayContainerComponent,
-    WeekContainerComponent
+    WeekContainerComponent,
+    ModalRemindersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
+  entryComponents: [DayContainerComponent, ModalRemindersComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,20 @@
+<div class='modal-container'>
+  <h1 mat-dialog-title>{{date}}</h1>
+</div>
+<div mat-dialog-content>
+  <div class='content'>
+    <p class='modal-title-content'>Reminders</p>
+    <i class="material-icons modal-icon-add">
+      add_circle
+    </i>
+  </div>
+</div>
+<mat-list role="list">
+  <mat-list-item role="listitem">Item 1</mat-list-item>
+  <mat-list-item role="listitem">Item 2</mat-list-item>
+  <mat-list-item role="listitem">Item 3</mat-list-item>
+</mat-list>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button [mat-dialog-close]="data.day.dayName" cdkFocusInitial>Ok</button>
+</div>

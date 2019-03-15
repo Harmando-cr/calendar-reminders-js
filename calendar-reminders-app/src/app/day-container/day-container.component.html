@@ -1,8 +1,9 @@
 <div class="day-box" [ngClass]="{'day-week': header,
                                   'day-weekend': dy.dayName === 'Sunday' || dy.dayName === 'Saturday',
-                                   'day-month': dy.dayMonth === month }">
+                                   'day-month': dy.dayMonth === month }"
+  (click)="openDialog()">
   <div [ngClass]="{'centered-day':header}">
-    <p *ngIf="header" class="day-week">{{day}}</p>
-    <p *ngIf="!header">{{dy.dayNumber}}</p>
+    <div *ngIf="header" class="day-week">{{day}}</div>
+    <div *ngIf="!header">{{dy.dayNumber}}</div>
   </div>
 </div>

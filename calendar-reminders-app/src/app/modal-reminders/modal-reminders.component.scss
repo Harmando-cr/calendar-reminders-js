@@ -1,0 +1,36 @@
+.modal-title-content{
+  float: left;
+  position: absolute;
+  top: 30%;
+  left: 47%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+}
+
+.modal-icon-add{
+  color: #3f71c2;
+  float: left;
+  position: absolute;
+  top: 35%;
+  left: 55%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+}
+
+.content{
+  height: 50px;
+}
+
+.modal-container{
+  background-color: #3f71c2;
+  color: white;
+  font-weight: bold;
+  float: left;
+  margin-left: -12%;
+  padding-left: 40px;
+  padding-top: 20px;
+  width: 210.5px;
+  margin-top: -12%;
+}
