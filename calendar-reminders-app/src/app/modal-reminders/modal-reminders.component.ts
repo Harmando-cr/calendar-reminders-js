@@ -10,21 +10,44 @@ import * as moment from 'moment';
 })
 export class ModalRemindersComponent implements OnInit {
   date: string;
+  type: string;
+  reminders: any[];
+  reminder: any;
 
   constructor(
     public dialogRef: MatDialogRef<ModalRemindersComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
     ) {
-    this.date = moment(data.day.dayDate).format('dddd MMMM D');
-    }
+    this.date = moment(data.day.dayDate).format('dddd, MMMM D');
+    this.type = 'show';
+    this.reminders = [];
+    this.reminder = {
+      text: '',
+      color: '',
+    };
+  }
 
-    ngOnInit() {
+  ngOnInit() {
+  }
 
-    }
+  typeAdd(){
+    this.type = 'add';
+    this.reminder = {
+      text: '',
+      color: '',
+    };
+  }
 
-    onNoClick(): void {
-      this.dialogRef.close();
-    }
+  addReminder(){
+    console.log(this.reminder, this.reminders);
+    this.reminders.push(this.reminder);
+    this.type = 'show';
+  }
+
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
 
 }
