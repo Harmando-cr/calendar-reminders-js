@@ -9,6 +9,7 @@ import { WeekContainerComponent } from './week-container/week-container.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalRemindersComponent } from './modal-reminders/modal-reminders.component';
 import { MaterialModule } from './material-module';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MaterialModule } from './material-module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ColorPickerModule
   ],
   entryComponents: [DayContainerComponent, ModalRemindersComponent],
   providers: [],

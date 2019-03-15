@@ -16,12 +16,11 @@
         <cdk-virtual-scroll-viewport itemSize="50" class="viewport " id="style-1">
           <div *cdkVirtualFor="let reminder of reminders" class="viewport-item">
             <div class='item'>{{reminder.text}}</div>
-            <div class='item'>{{reminder.color}}</div>
+            <i class="material-icons" [ngStyle]="applyStyles()">
+              fiber_manual_record
+            </i>
           </div>
         </cdk-virtual-scroll-viewport>
-        <!-- <mat-list-item *ngFor="let reminder of reminders" role="listitem">{{reminder.text}}</mat-list-item> -->
-        <!-- <mat-list-item role="listitem">Item 2</mat-list-item> -->
-        <!-- <mat-list-item role="listitem">Item 3</mat-list-item> -->
       </mat-list>
     </div>
   </div>
@@ -35,9 +34,10 @@
   <mat-form-field>
     <input matInput [(ngModel)]="reminder.text" placeholder="Input a reminder!">
   </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="reminder.color" placeholder="Input a color!">
-  </mat-form-field>
-
+  <br>
+  <p>Select a reminder color</p>
+  <input [(colorPicker)]="reminder.color" [style.background]="reminder.color" />
+  <br>
+  <br>
   <button mat-raised-button (click)="addReminder()">Add</button>
 </div>

@@ -49,5 +49,10 @@ export class ModalRemindersComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  applyStyles() {
+    const styles = { 'color': this.reminder.color };
+    return styles;
+  }
+
 
 }
