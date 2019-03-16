@@ -4,6 +4,19 @@
   (click)="openDialog()">
   <div [ngClass]="{'centered-day':header}">
     <div *ngIf="header" class="day-week">{{day}}</div>
-    <div *ngIf="!header">{{dy.dayNumber}}</div>
+    <div *ngIf="!header">
+      <div class="day">
+        {{dy.dayNumber}}
+      </div>
+      <div *ngIf="reminderCant > 0" class="more-reminders">
+        +{{reminderCant}}
+      </div>
+      <div *ngIf="!dy.dayReminders[0]" [ngStyle]="{'color': 'transparent'}" class='reminders'>null</div>
+      <div *ngIf="dy.dayReminders[0]" class='reminders' [style.background]="dy.dayReminders[0].color">{{dy.dayReminders[0].text}}</div>
+      <div *ngIf="!dy.dayReminders[1]" [ngStyle]="{'color': 'transparent'}" class='reminders'>null</div>
+      <div *ngIf="dy.dayReminders[1]" class='reminders' [style.background]="dy.dayReminders[1].color">{{dy.dayReminders[1].text}}</div>
+      <div *ngIf="!dy.dayReminders[2]" [ngStyle]="{'color': 'transparent'}" class='reminders'>null</div>
+      <div *ngIf="dy.dayReminders[2]" class='reminders' [style.background]="dy.dayReminders[2].color">{{dy.dayReminders[2].text}}</div>
+    </div>
   </div>
 </div>

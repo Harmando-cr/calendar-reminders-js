@@ -4,6 +4,7 @@ import { DialogData } from '../day-container/day-container.component';
 import { AmazingTimePickerService } from 'amazing-time-picker';
 
 import * as moment from 'moment';
+import { log } from 'util';
 
 @Component({
   selector: 'app-modal-reminders',
@@ -23,7 +24,7 @@ export class ModalRemindersComponent implements OnInit {
     ) {
     this.date = moment(data.day.dayDate).format('dddd, MMMM D');
     this.type = 'show';
-    this.reminders = [];
+    this.reminders = data.day.dayReminders;
 
     this.reminder = {
       text: '',
@@ -44,15 +45,39 @@ export class ModalRemindersComponent implements OnInit {
     };
   }
 
-  addReminder(){
-    console.log(this.reminder, this.reminders);
+  addReminder() {
     this.reminders.push(this.reminder);
+    this.reminders.sort((a, b) => {
+      if (a.time > b.time) {
+        return 1;
+      }
+      if (a.time < b.time) {
+        return -1;
+      }
+      return 0;
+    });
     this.type = 'show';
   }
 
+  editReminder(rem) {
+    this.reminder = rem;
+    this.type = 'edit';
+  }
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  saveReminder(rem){
+    console.log('REM:', rem);
+    console.log('this.reminder:', this.reminder);
+
+    const index = this.reminders.indexOf(this.reminder);
+
+    if (index !== -1) {
+      this.reminders[index] = rem;
+    }
+    this.type = 'show';
+  }
+
+  close(){
+    this.type = 'show';
   }
 
   applyStyles() {

@@ -20,7 +20,7 @@
               fiber_manual_record
             </i>
             <div class='item'>{{reminder.text}}</div>
-            <i class="material-icons item edit">
+            <i class="material-icons item edit" (click)="editReminder(reminder)">
               edit
             </i>
           </div>
@@ -29,11 +29,10 @@
     </div>
   </div>
   <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Close</button>
-    <button mat-button [mat-dialog-close]="data.day.dayName" cdkFocusInitial>Ok</button>
+    <button mat-button [mat-dialog-close]="reminders" cdkFocusInitial>Close</button>
   </div>
 </div>
-<div *ngIf="type === 'add'">
+<div *ngIf="type === 'add' || type === 'edit'">
   <div class='content-add'>
     <br>
     <mat-form-field>
@@ -41,18 +40,18 @@
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input matInput placeholder="Select a color!"
+      <input matInput placeholder="Select a color!" autocomplete="off"
       [(colorPicker)]="reminder.color" [style.background]="reminder.color" [style.color]="reminder.color" >
     </mat-form-field>
-    <!-- <input [(colorPicker)]="reminder.color" [style.background]="reminder.color" /> -->
     <br>
     <mat-form-field>
-      <input matInput [(ngModel)]="reminder.time" placeholder="Select an hour!" (click)="open()" value="{{reminder.time}}">
+      <input matInput [(ngModel)]="reminder.time" placeholder="Select an hour!"
+      autocomplete="off" (click)="open()" value="{{reminder.time}}">
     </mat-form-field>
-    <!-- <button (click)="open()">Time</button> -->
-    <!-- <input type="time" value="{{reminder.time}}"> -->
     <br>
-    <button mat-raised-button (click)="addReminder()">Add</button>
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button *ngIf="type === 'edit'" mat-raised-button (click)="saveReminder(reminder)">Edit</button>
+    <button *ngIf="type === 'add'" mat-raised-button (click)="addReminder()">Add</button>
 
   </div>
 </div>

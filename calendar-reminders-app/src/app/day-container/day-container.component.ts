@@ -18,7 +18,7 @@ export class DayContainerComponent implements OnInit {
   @Input() header: boolean;
   month: string;
   dy: any = {};
-
+  reminderCant: number;
 
   constructor(public dialog: MatDialog) {
   }
@@ -34,16 +34,24 @@ export class DayContainerComponent implements OnInit {
       dayReminders: []
     };
     this.dy = dd;
+    this.reminderCant = 0;
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalRemindersComponent, {
-      width: '450px',
+      width: '500px',
       data: { day: this.dy }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      console.log('reminders:', result);
+      if (result !== 'undefined') {
+        this.dy.dayReminders = result;
+      } else {
+        this.dy.dayReminders = [];
+      }
+      this.reminderCant = (this.dy.dayReminders.length - 3) < 0 ? 0 : (this.dy.dayReminders.length - 3);
     });
   }
 

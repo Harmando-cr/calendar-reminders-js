@@ -38,3 +38,30 @@
   transform: translate(-50%, -50%);
 }
 
+.reminders{
+  width: 100%;
+  height: 10.5px;
+  font-size: 10px;
+  position: relative;
+  float: right;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.day{
+  position: relative;
+  float: left;
+}
+
+.more-reminders{
+  color: white;
+  position: relative;
+  float: right;
+  margin-right: 5px;
+  padding: 2px;
+  margin-top: 3px;
+  font-size: 10px;
+  background: #3f71c2;
+  border-radius: 50%;
+}
