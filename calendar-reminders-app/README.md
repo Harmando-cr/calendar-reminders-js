@@ -21,6 +21,14 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ● Can delete one or ALL the reminders for a specific day
 
-## missing functions 
+## Know issues and notes
 
-Unit test the functionality: ​Ability to add a new "reminder" (max 30 chars) for a user entered day and time.
+● If the modal of create/edit/delete a reminder is close without click on close button (click anywere outside),
+  the app crash
+
+● When the month is changed, all the reminders are lost
+
+● Unit test  on the functionality: ​Ability to add a new "reminder" (max 30 chars) is missing.
+
+● For very long reminders, the modal display may lose the style.
+
