@@ -16,6 +16,7 @@ export class DayContainerComponent implements OnInit {
 
   @Input() day: any;
   @Input() header: boolean;
+  @Input() date: any;
   month: string;
   dy: any = {};
   reminderCant: number;
@@ -24,7 +25,7 @@ export class DayContainerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.month = moment().format('MMMM');
+    this.month = moment(this.date).format('MMMM');
     const date = new Date(this.day);
     const dd = {
       dayName: moment(date).format('dddd'),

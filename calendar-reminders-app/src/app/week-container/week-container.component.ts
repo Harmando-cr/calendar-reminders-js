@@ -9,7 +9,7 @@ export class WeekContainerComponent implements OnInit {
 
   @Input() header: string[];
   @Input() week: any;
-
+  @Input() date: any;
   constructor() { }
 
   ngOnInit() {

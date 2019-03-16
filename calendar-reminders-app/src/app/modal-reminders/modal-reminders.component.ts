@@ -64,10 +64,7 @@ export class ModalRemindersComponent implements OnInit {
     this.type = 'edit';
   }
 
-  saveReminder(rem){
-    console.log('REM:', rem);
-    console.log('this.reminder:', this.reminder);
-
+  saveReminder(rem) {
     const index = this.reminders.indexOf(this.reminder);
 
     if (index !== -1) {
@@ -76,7 +73,31 @@ export class ModalRemindersComponent implements OnInit {
     this.type = 'show';
   }
 
-  close(){
+  deleteReminder(rem) {
+    console.log('REM:', rem);
+
+    this.reminder = {
+      text: '',
+      color: '',
+      time: '',
+    };
+    const index = this.reminders.indexOf(rem);
+    if (index !== -1) {
+      console.log('antes', this.reminders);
+      console.log('index', index);
+      this.reminders.splice(index, 1);
+      console.log('despues', this.reminders);
+    }
+
+    console.log('this.reminder:', this.reminder);
+    this.dialogRef.close(this.reminders);
+  }
+
+  deleteAll() {
+    this.dialogRef.close([]);
+  }
+
+  close() {
     this.type = 'show';
   }
 

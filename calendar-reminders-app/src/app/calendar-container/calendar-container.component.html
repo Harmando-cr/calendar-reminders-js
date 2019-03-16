@@ -1,4 +1,14 @@
 <div class="calendar-container">
-  <app-week-container [header]="header"></app-week-container>
-  <app-week-container *ngFor="let week of calendar" [week]='week' ></app-week-container>
+
+  <h4>Select a month</h4>
+  <mat-form-field>
+    <mat-select placeholder="Month">
+      <mat-option *ngFor="let month of months" [value]="month.text" (click)="initWithMonth(month)">
+        {{month.text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <app-week-container [header]="header" [date]='date'></app-week-container>
+  <app-week-container *ngFor="let week of calendar" [week]='week' [date]='date'></app-week-container>
 </div>

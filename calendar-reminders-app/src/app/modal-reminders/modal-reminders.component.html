@@ -8,6 +8,9 @@
       <i class="material-icons modal-icon-add" (click)='typeAdd()'>
         add_circle
       </i>
+      <i *ngIf="reminders.length > 0" class="material-icons modal-icon-delete" (click)='deleteAll()'>
+        delete
+      </i>
     </div>
   </div>
   <div >
@@ -22,6 +25,9 @@
             <div class='item'>{{reminder.text}}</div>
             <i class="material-icons item edit" (click)="editReminder(reminder)">
               edit
+            </i>
+            <i class="material-icons item edit" (click)="deleteReminder(reminder)">
+              highlight_off
             </i>
           </div>
         </cdk-virtual-scroll-viewport>
@@ -49,7 +55,7 @@
       autocomplete="off" (click)="open()" value="{{reminder.time}}">
     </mat-form-field>
     <br>
-    <button mat-raised-button (click)="close()">Cancel</button>
+    <button *ngIf="type === 'add'" mat-raised-button (click)="close()">Cancel</button>
     <button *ngIf="type === 'edit'" mat-raised-button (click)="saveReminder(reminder)">Edit</button>
     <button *ngIf="type === 'add'" mat-raised-button (click)="addReminder()">Add</button>
 
